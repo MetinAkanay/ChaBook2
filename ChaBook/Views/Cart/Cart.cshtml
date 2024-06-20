@@ -1,0 +1,143 @@
+﻿@model ChaBook.Models.CartViewModel
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Shopping Cart</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUa0hY4sU2fQVR0sA8B2hjAcJUsImC/qSZV5E5A11AuO3o16H2P6dThdF2mD" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.9.1/font/bootstrap-icons.min.css">
+    <style>
+        .cart-item img {
+            width: 100px;
+            height: auto;
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ced4da;
+            padding-bottom: 10px;
+        }
+
+        .cart-item-details {
+            flex-grow: 1;
+            margin-left: 20px;
+        }
+
+        .cart-item-quantity {
+            display: flex;
+            align-items: center;
+        }
+
+            .cart-item-quantity input {
+                width: 50px;
+                margin: 0 10px;
+                text-align: center;
+            }
+
+        .cart-total {
+            text-align: right;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Pricing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h2 class="my-4">Shopping Cart</h2>
+        <div>
+            @foreach (var item in Model.Items)
+            {
+                <div class="cart-item">
+                    <img src="@item.ImageUrl" alt="@item.ProductName" />
+                    <div class="cart-item-details">
+                        <h5>@item.ProductName</h5>
+                        <p>Price: $@item.Price</p>
+                        <p>Stock: @item.Stock</p>
+                        <div class="cart-item-quantity">
+                            <label for="quantity-@item.ProductId">Quantity:</label>
+                            <input type="number" id="quantity-@item.ProductId" class="form-control" value="@item.Quantity" min="1" max="@item.Stock" onchange="updateTotal(@item.ProductId, @item.Price, @item.Stock)">
+                        </div>
+                    </div>
+                    <div>
+                        <p>Total: $<span id="total-@item.ProductId">@item.TotalPrice</span></p>
+                        <button onclick="addToFavorites(@item.ProductId)" class="btn btn-primary">Add to Favorites</button>
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="cart-total">
+            <h4>Total Price: $<span id="grand-total">@Model.TotalPrice</span></h4>
+        </div>
+    </div>
+
+    <script>
+            function updateTotal(productId, price, stock) {
+            var quantity = document.getElementById('quantity-' + productId).value;
+            if (quantity > stock) {
+                alert('Quantity exceeds stock available');
+                quantity = stock;
+                    document.getElementById('quantity-' + productId).value = quantity;
+            }
+            var total = quantity * price;
+            document.getElementById('total-' + productId).innerText = total.toFixed(2);
+            updateGrandTotal();
+        }
+
+        function updateGrandTotal() {
+            var grandTotal = 0;
+            document.querySelectorAll('[id^="total-"]').forEach(function(element) {
+                grandTotal += parseFloat(element.innerText);
+            });
+            document.getElementById('grand-total').innerText = grandTotal.toFixed(2);
+        }
+
+        function addToFavorites(productId) {
+            // AJAX ile favoriye ekleme isteği gönder
+            fetch('/Favorite/Add/' + productId, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ productId: productId })
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+e0igZrc8+rqmXW2p+urW/7qbsK3y" crossorigin="anonymous"></script>
+</body>
+</html>

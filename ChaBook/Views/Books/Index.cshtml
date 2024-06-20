@@ -1,0 +1,186 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl7/1L_dstPt3HV5HzF6Gvk/e9T9hXmJ58bldgTk+" crossorigin="anonymous">
+    <style>
+        body {
+            min-height: calc(100vh - 100px); /* Header ve footer arasındaki alanın boyutunu ayarlayın (örnekte 100px) */
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #sidebar {
+            background-color: #f7f7f7;
+            padding: 20px;
+            width: 255px;
+            height: 100vh;
+            float: left;
+        }
+
+        #main-content {
+            padding: 20px;
+            margin-left: 255px;
+            background-color: #ffffff;
+            flex-grow: 1;
+        }
+
+        .bx--accordion {
+            width: 100%;
+        }
+
+        .bx--accordion__item {
+            padding: 1px 0px;
+        }
+
+        .bx--accordion__content {
+            padding-right: 1rem;
+            padding-left: 0.5rem;
+        }
+
+        .bx--accordion__heading {
+            padding: 0px;
+            height: 44px;
+        }
+
+        .bx--accordion__title {
+            font-weight: 600;
+            font-size: 14px;
+            color: #000000;
+            margin-left: 8px;
+        }
+
+        .bx--accordion__arrow {
+            margin: 0 8px 0 0;
+        }
+
+        .categories li {
+            padding: 4px 0px;
+        }
+
+        .categories ul {
+            margin-top: 10px;
+        }
+
+        input[type="checkbox"] {
+            margin-right: 12px;
+        }
+
+        .dsearch {
+            width: 100%;
+            padding: 12px;
+            border-radius: 2px;
+            margin-bottom: 12px;
+            font-size: 12px;
+        }
+
+        .save {
+            width: 100%;
+            border-radius: 2px;
+            border: 1px solid #000000;
+            padding: 8px;
+            margin: 12px 0;
+            font-weight: 600;
+        }
+
+        .protect {
+            margin-top: 12px;
+            padding: 12px 12px 16px;
+            background-color: #F7F7FF;
+            border-radius: 2px;
+            margin-bottom: 24px;
+        }
+
+            .protect p {
+                line-height: 20px;
+            }
+
+            .protect a {
+                font-weight: bold;
+                color: #000;
+                text-decoration: none;
+            }
+
+            .protect svg {
+                width: 10%;
+                margin-right: 12px;
+                margin-top: 5px;
+            }
+
+            .protect .copy {
+                width: 80%;
+            }
+    </style>
+</head>
+<body>
+    <div id="sidebar">
+        <ul data-accordion class="bx--accordion">
+            <li data-accordion-item class="bx--accordion__item">
+                <button class="bx--accordion__heading" aria-expanded="false" aria-controls="pane1">
+                    <svg focusable="false" preserveAspectRatio="xMidYMid meet" style="will-change: transform;" xmlns="http://www.w3.org/2000/svg" class="bx--accordion__arrow" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M11 8l-5 5-.7-.7L9.6 8 5.3 3.7 6 3z"></path></svg>
+                    <div class="bx--accordion__title">Category</div>
+                </button>
+                <div id="pane1" class="bx--accordion__content">
+                    <ul data-accordion class="categories">
+                        <li>
+                            Genre
+                            <ul>
+                                <li><input type="checkbox" id="fiction"><label for="fiction">Fiction</label></li>
+                                <li><input type="checkbox" id="non-fiction"><label for="non-fiction">Non-Fiction</label></li>
+                                <li><input type="checkbox" id="biography"><label for="biography">Biography</label></li>
+                                <li><input type="checkbox" id="self-help"><label for="self-help">Self-Help</label></li>
+                                <li><input type="checkbox" id="fantasy"><label for="fantasy">Fantasy</label></li>
+                            </ul>
+                        </li>
+                        <li>
+                            Language
+                            <ul>
+                                <li><input type="checkbox" id="english"><label for="english">English</label></li>
+                                <li><input type="checkbox" id="spanish"><label for="spanish">Spanish</label></li>
+                                <li><input type="checkbox" id="french"><label for="french">French</label></li>
+                                <li><input type="checkbox" id="german"><label for="german">German</label></li>
+                                <li><input type="checkbox" id="chinese"><label for="chinese">Chinese</label></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li data-accordion-item class="bx--accordion__item">
+                    <div class="bx--accordion__title">Author</div>
+                </button>
+                <div id="pane2" class="bx--accordion__content">
+                    <input style="width: 200px;" class="dsearch" type="text" placeholder="Search author...">
+                    <ul data-accordion class="categories">
+                        <li>
+                            Popular Authors
+                            <ul>
+                                <li><input type="checkbox" id="rowling"><label for="rowling">J.K. Rowling</label></li>
+                                <li><input type="checkbox" id="martin"><label for="martin">George R.R. Martin</label></li>
+                                <li><input type="checkbox" id="murakami"><label for="murakami">Haruki Murakami</label></li>
+                                <li><input type="checkbox" id="tolkien"><label for="tolkien">J.R.R. Tolkien</label></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li data-accordion-item class="bx--accordion__item">
+                    <div class="bx--accordion__title">Price Range</div>
+                </button>
+                <div id="pane3" class="bx--accordion__content">
+                    <input style="width: 200px;" class="dsearch" type="number" placeholder="Minimum price...">
+                    <input style="width: 200px;" class="dsearch" type="number" placeholder="Maximum price...">
+                    <button class="save" type="button">Apply Filters</button>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div id="main-content">
+        <!-- Ana içeriğin içeriği buraya gelecek -->
+    </div>
+</body>
+</html>
