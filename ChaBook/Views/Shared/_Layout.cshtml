@@ -188,6 +188,11 @@
         .social-media-icons.bi {
             font-size: 24px;
         }
+
+        .user-action:hover .action-label {
+            visibility: visible;
+            opacity: 1;
+        }
     </style>
 </head>
 <body>
@@ -195,7 +200,7 @@
         <div class="header-container">
             <div class="logo-container">
                 <div class="logo">
-                    <img src="path_to_logo_image" alt="">
+                    <img src="path_to_logo_image" alt="ChaBook Logo">
                     <h1 class="m-0">ChaBook</h1>
                 </div>
             </div>
@@ -248,7 +253,7 @@
         </div>
     </header>
 
-    <div class="container mt-5 pt-5">
+    <div class="container">
         @RenderBody()
     </div>
 

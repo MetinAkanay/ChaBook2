@@ -15,49 +15,41 @@
             font-family: Arial, sans-serif;
             font-size: 14px;
             margin: 0;
+            display: flex;
             flex-direction: column;
         }
 
         #container {
-            width: 100%;
+            display: flex;
             flex-grow: 1;
+            width: 100%;
         }
 
         #sidebar {
-            position: fixed;
-            left: 0;
+            margin-left: -200px;
             width: 250px;
-            height: 100%;
             background-color: #fcf5eb;
             padding: 20px;
             border-right: 1px solid #e1d3c1;
             overflow-y: auto;
-            overflow-x: hidden;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-            margin-bottom: 20px;
-            z-index: 1;
-            box-sizing: border-box;
+            height: 1000px;
         }
 
         #main-content {
-            margin-left: 270px; /* Sidebar genişliği + 20px boşluk */
+            flex-grow: 1;
             padding: 20px;
             background-color: #ffffff;
-            flex-grow: 1;
         }
 
         .bx--accordion {
             list-style: none;
             padding: 0;
             width: 100%;
-            margin-right: 5px;
         }
 
         .bx--accordion__item {
             padding: 1px 0px;
             border-bottom: 1px solid #e1d3c1;
-            margin-right: 50px;
         }
 
         .bx--accordion__content {
@@ -68,17 +60,6 @@
         .bx--accordion__heading {
             padding: 0px;
             height: 44px;
-        }
-/* 
-        .bx--accordion__title {
-            font-weight: 600;
-            font-size: 14px;
-            color: #000000;
-            margin-left: 8px;
-        } */
-
-        .bx--accordion__arrow {
-            margin: 0 8px 0 0;
         }
 
         .categories li {
@@ -135,12 +116,17 @@
         .card-custom {
             width: 18rem;
         }
+
+        #sidebar::-webkit-scrollbar {
+            width: 0;
+            height: 0; 
+        }
     </style>
 </head>
 <body>
     <div id="container">
         <div id="sidebar" class="col-md-1">
-            <div class=“container mt-1”>
+            <div class="container mt-1">
                 <ul data-accordion class="bx--accordion">
                     <li data-accordion-item class="bx--accordion__item">
                         <div class="bx--accordion__title">Category</div>
@@ -206,8 +192,8 @@
                 </ul>
             </div>
         </div>
-        <div id="main-content" class="col-md-11">
-            <div class="container mt-5">
+        <div id="main-content">
+            <div class="container">
                 <div class="row row-cols-1 row-cols-md-4 g-4">
                     <div class="col">
                         <div class="card h-100">
@@ -243,7 +229,7 @@
                         <div class="card h-100">
                             <img src="https://via.placeholder.com/150" class="card-img-top" alt="Placeholder Image">
                             <div class="card-body">
-                                <h5 class="card-title">Card Title 3</h5>
+                                <h5 class="card-title">Card Title 4</h5>
                                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                 <a href="#" class="btn btn-primary">Go somewhere</a>
                             </div>
@@ -253,7 +239,7 @@
                         <div class="card h-100">
                             <img src="https://via.placeholder.com/150" class="card-img-top" alt="Placeholder Image">
                             <div class="card-body">
-                                <h5 class="card-title">Card Title 3</h5>
+                                <h5 class="card-title">Card Title 5</h5>
                                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                 <a href="#" class="btn btn-primary">Go somewhere</a>
                             </div>
@@ -263,7 +249,7 @@
                         <div class="card h-100">
                             <img src="https://via.placeholder.com/150" class="card-img-top" alt="Placeholder Image">
                             <div class="card-body">
-                                <h5 class="card-title">Card Title 3</h5>
+                                <h5 class="card-title">Card Title 6</h5>
                                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                 <a href="#" class="btn btn-primary">Go somewhere</a>
                             </div>
@@ -273,7 +259,7 @@
                         <div class="card h-100">
                             <img src="https://via.placeholder.com/150" class="card-img-top" alt="Placeholder Image">
                             <div class="card-body">
-                                <h5 class="card-title">Card Title 3</h5>
+                                <h5 class="card-title">Card Title 7</h5>
                                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                 <a href="#" class="btn btn-primary">Go somewhere</a>
                             </div>
@@ -283,7 +269,7 @@
                         <div class="card h-100">
                             <img src="https://via.placeholder.com/150" class="card-img-top" alt="Placeholder Image">
                             <div class="card-body">
-                                <h5 class="card-title">Card Title 3</h5>
+                                <h5 class="card-title">Card Title 8</h5>
                                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                 <a href="#" class="btn btn-primary">Go somewhere</a>
                             </div>
@@ -293,7 +279,7 @@
                         <div class="card h-100">
                             <img src="https://via.placeholder.com/150" class="card-img-top" alt="Placeholder Image">
                             <div class="card-body">
-                                <h5 class="card-title">Card Title 3</h5>
+                                <h5 class="card-title">Card Title 9</h5>
                                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                 <a href="#" class="btn btn-primary">Go somewhere</a>
                             </div>
@@ -303,7 +289,7 @@
                         <div class="card h-100">
                             <img src="https://via.placeholder.com/150" class="card-img-top" alt="Placeholder Image">
                             <div class="card-body">
-                                <h5 class="card-title">Card Title 3</h5>
+                                <h5 class="card-title">Card Title 10</h5>
                                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                 <a href="#" class="btn btn-primary">Go somewhere</a>
                             </div>
@@ -313,7 +299,7 @@
                         <div class="card h-100">
                             <img src="https://via.placeholder.com/150" class="card-img-top" alt="Placeholder Image">
                             <div class="card-body">
-                                <h5 class="card-title">Card Title 3</h5>
+                                <h5 class="card-title">Card Title 11</h5>
                                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                 <a href="#" class="btn btn-primary">Go somewhere</a>
                             </div>
@@ -323,13 +309,12 @@
                         <div class="card h-100">
                             <img src="https://via.placeholder.com/150" class="card-img-top" alt="Placeholder Image">
                             <div class="card-body">
-                                <h5 class="card-title">Card Title 3</h5>
+                                <h5 class="card-title">Card Title 12</h5>
                                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                 <a href="#" class="btn btn-primary">Go somewhere</a>
                             </div>
                         </div>
                     </div>
-           
                 </div>
             </div>
         </div>
