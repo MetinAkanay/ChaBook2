@@ -1,6 +1,9 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
+    @{
+        Layout = "_Layout";
+    }
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewData["Title"]</title>
@@ -26,7 +29,7 @@
             position: fixed;
             left: 0;
             width: 250px;
-            height: 650px;
+            height: 80%;
             background-color: #fcf5eb;
             padding: 20px;
             border-right: 1px solid #e1d3c1;
@@ -34,12 +37,14 @@
             overflow-x: hidden;
             scrollbar-width: none;
             -ms-overflow-style: none;
+            margin-bottom: 20px;
             z-index: 1;
             box-sizing: border-box;
+            margin-top: 85px;
         }
 
         #main-content {
-            margin-left: 250px;
+            margin-left: 270px; /* Sidebar genişliği + 20px boşluk */
             padding: 20px;
             background-color: #ffffff;
             flex-grow: 1;
@@ -125,17 +130,25 @@
                 color: #000;
                 text-decoration: none;
             }
+
+        .container-custom {
+            max-width: 100%;
+        }
+
+        .card-custom {
+            width: 18rem;
+        }
     </style>
 </head>
 <body>
     <div id="container">
-        <div id="sidebar">
+        <div id="sidebar" class="col-md-1">
             <ul data-accordion class="bx--accordion">
                 <li data-accordion-item class="bx--accordion__item">
                     <div class="bx--accordion__title">Category</div>
                     <div id="pane1" class="bx--accordion__content">
                         <input style="width: 200px;" class="dsearch" type="text" placeholder="Search Genre...">
-                        <ul data-accordion class="categories">
+                        <ul data-accordion class="categories" style="margin-left:-30px;">
                             <li>
                                 Popular Genre
                                 <ul>
@@ -153,7 +166,7 @@
                     <div class="bx--accordion__title">Language</div>
                     <div id="pane2" class="bx--accordion__content">
                         <input style="width: 200px;" class="dsearch" type="text" placeholder="Search Language...">
-                        <ul data-accordion class="categories">
+                        <ul data-accordion class="categories" style="margin-left:-30px;">
                             <li>
                                 Popular Language
                                 <ul>
@@ -171,13 +184,13 @@
                     <div class="bx--accordion__title">Author</div>
                     <div id="pane3" class="bx--accordion__content">
                         <input style="width: 200px;" class="dsearch" type="text" placeholder="Search author...">
-                        <ul data-accordion class="categories">
+                        <ul data-accordion class="categories" style="margin-left:-40px;">
                             <li>
                                 Popular Authors
                                 <ul>
                                     <li><input type="checkbox" id="rowling"><label for="rowling">J.K. Rowling</label></li>
-                                    <li><input type="checkbox" id="martin"><label for="martin">George R.R. Martin</label></li>
-                                    <li><input type="checkbox" id="murakami"><label for="murakami">Haruki Murakami</label></li>
+                                    <li><input type="checkbox" id="martin"><label for="martin">Shakespeare</label></li>
+                                    <li><input type="checkbox" id="murakami"><label for="murakami">Jane Austen</label></li>
                                     <li><input type="checkbox" id="tolkien"><label for="tolkien">J.R.R. Tolkien</label></li>
                                 </ul>
                             </li>
@@ -194,21 +207,130 @@
                 </li>
             </ul>
         </div>
-        <div id="main-content">
-            <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">An item</li>
-                    <li class="list-group-item">A second item</li>
-                    <li class="list-group-item">A third item</li>
-                </ul>
-                <div class="card-body">
-                    <a href="#" class="card-link">Card link</a>
-                    <a href="#" class="card-link">Another link</a>
+        <div id="main-content" class="col-md-11">
+            <div class="container mt-5">
+                <div class="row row-cols-1 row-cols-md-4 g-4">
+                    <div class="col">
+                        <div class="card h-100">
+                            <img src="https://via.placeholder.com/150" class="card-img-top" alt="Placeholder Image">
+                            <div class="card-body">
+                                <h5 class="card-title">Card Title 1</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100">
+                            <img src="https://via.placeholder.com/150" class="card-img-top" alt="Placeholder Image">
+                            <div class="card-body">
+                                <h5 class="card-title">Card Title 2</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100">
+                            <img src="https://via.placeholder.com/150" class="card-img-top" alt="Placeholder Image">
+                            <div class="card-body">
+                                <h5 class="card-title">Card Title 3</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100">
+                            <img src="https://via.placeholder.com/150" class="card-img-top" alt="Placeholder Image">
+                            <div class="card-body">
+                                <h5 class="card-title">Card Title 3</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100">
+                            <img src="https://via.placeholder.com/150" class="card-img-top" alt="Placeholder Image">
+                            <div class="card-body">
+                                <h5 class="card-title">Card Title 3</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100">
+                            <img src="https://via.placeholder.com/150" class="card-img-top" alt="Placeholder Image">
+                            <div class="card-body">
+                                <h5 class="card-title">Card Title 3</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100">
+                            <img src="https://via.placeholder.com/150" class="card-img-top" alt="Placeholder Image">
+                            <div class="card-body">
+                                <h5 class="card-title">Card Title 3</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100">
+                            <img src="https://via.placeholder.com/150" class="card-img-top" alt="Placeholder Image">
+                            <div class="card-body">
+                                <h5 class="card-title">Card Title 3</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100">
+                            <img src="https://via.placeholder.com/150" class="card-img-top" alt="Placeholder Image">
+                            <div class="card-body">
+                                <h5 class="card-title">Card Title 3</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100">
+                            <img src="https://via.placeholder.com/150" class="card-img-top" alt="Placeholder Image">
+                            <div class="card-body">
+                                <h5 class="card-title">Card Title 3</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100">
+                            <img src="https://via.placeholder.com/150" class="card-img-top" alt="Placeholder Image">
+                            <div class="card-body">
+                                <h5 class="card-title">Card Title 3</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100">
+                            <img src="https://via.placeholder.com/150" class="card-img-top" alt="Placeholder Image">
+                            <div class="card-body">
+                                <h5 class="card-title">Card Title 3</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                    </div>
+           
                 </div>
             </div>
         </div>
