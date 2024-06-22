@@ -24,42 +24,11 @@
             flex-grow: 1;
             width: 100%;
         }
-
-        #sidebar {
-            margin-left: -200px;
-            width: 250px;
-            background-color: #fcf5eb;
-            padding: 20px;
-            border-right: 1px solid #e1d3c1;
-            overflow-y: auto;
-            height: 1000px;
-        }
-
+      
         #main-content {
             flex-grow: 1;
             padding: 20px;
             background-color: #ffffff;
-        }
-
-        .bx--accordion {
-            list-style: none;
-            padding: 0;
-            width: 100%;
-        }
-
-        .bx--accordion__item {
-            padding: 1px 0px;
-            border-bottom: 1px solid #e1d3c1;
-        }
-
-        .bx--accordion__content {
-            padding-right: 1rem;
-            padding-left: 0.5rem;
-        }
-
-        .bx--accordion__heading {
-            padding: 0px;
-            height: 44px;
         }
 
         .categories li {
@@ -116,82 +85,10 @@
         .card-custom {
             width: 18rem;
         }
-
-        #sidebar::-webkit-scrollbar {
-            width: 0;
-            height: 0; 
-        }
     </style>
 </head>
 <body>
     <div id="container">
-        <div id="sidebar" class="col-md-1">
-            <div class="container mt-1">
-                <ul data-accordion class="bx--accordion">
-                    <li data-accordion-item class="bx--accordion__item">
-                        <div class="bx--accordion__title">Category</div>
-                        <div id="pane1" class="bx--accordion__content">
-                            <input style="width: 200px;" class="dsearch" type="text" placeholder="Search Genre...">
-                            <ul data-accordion class="categories" style="margin-left:-30px;">
-                                <li>
-                                    Popular Genre
-                                    <ul>
-                                        <li><input type="checkbox" id="fiction"><label for="fiction">Fiction</label></li>
-                                        <li><input type="checkbox" id="non-fiction"><label for="non-fiction">Non-Fiction</label></li>
-                                        <li><input type="checkbox" id="biography"><label for="biography">Biography</label></li>
-                                        <li><input type="checkbox" id="self-help"><label for="self-help">Self-Help</label></li>
-                                        <li><input type="checkbox" id="fantasy"><label for="fantasy">Fantasy</label></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li data-accordion-item class="bx--accordion__item">
-                        <div class="bx--accordion__title">Language</div>
-                        <div id="pane2" class="bx--accordion__content">
-                            <input style="width: 200px;" class="dsearch" type="text" placeholder="Search Language...">
-                            <ul data-accordion class="categories" style="margin-left:-30px;">
-                                <li>
-                                    Popular Language
-                                    <ul>
-                                        <li><input type="checkbox" id="english"><label for="english">English</label></li>
-                                        <li><input type="checkbox" id="spanish"><label for="spanish">Spanish</label></li>
-                                        <li><input type="checkbox" id="french"><label for="french">French</label></li>
-                                        <li><input type="checkbox" id="german"><label for="german">German</label></li>
-                                        <li><input type="checkbox" id="chinese"><label for="chinese">Chinese</label></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li data-accordion-item class="bx--accordion__item">
-                        <div class="bx--accordion__title">Author</div>
-                        <div id="pane3" class="bx--accordion__content">
-                            <input style="width: 200px;" class="dsearch" type="text" placeholder="Search author...">
-                            <ul data-accordion class="categories" style="margin-left:-40px;">
-                                <li>
-                                    Popular Authors
-                                    <ul>
-                                        <li><input type="checkbox" id="rowling"><label for="rowling">J.K. Rowling</label></li>
-                                        <li><input type="checkbox" id="martin"><label for="martin">Shakespeare</label></li>
-                                        <li><input type="checkbox" id="murakami"><label for="murakami">Jane Austen</label></li>
-                                        <li><input type="checkbox" id="tolkien"><label for="tolkien">J.R.R. Tolkien</label></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li data-accordion-item class="bx--accordion__item">
-                        <div class="bx--accordion__title">Price Range</div>
-                        <div id="pane4" class="bx--accordion__content">
-                            <input style="width: 200px;" class="dsearch" type="number" placeholder="Minimum price...">
-                            <input style="width: 200px;" class="dsearch" type="number" placeholder="Maximum price...">
-                            <button style="width: 200px;" class="save" type="button">Apply Filters</button>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
         <div id="main-content">
             <div class="container">
                 <div class="row row-cols-1 row-cols-md-4 g-4">
