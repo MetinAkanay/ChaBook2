@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="images\A.png" />
+    <None Include="wwwroot\images\ChaBookLogo.png" />
   </ItemGroup>
 
   <ItemGroup>
