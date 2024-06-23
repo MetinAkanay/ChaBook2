@@ -1,0 +1,18 @@
+﻿@* @model IEnumerable<ChaBook.Models.Magazine>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Magazines - @ViewBag.SubCategory</title>
+</head>
+<body>
+    <h1>Magazines - @ViewBag.SubCategory</h1>
+    <ul>
+        @foreach (var magazine in Model)
+        {
+            <li>@magazine.Title - @magazine.Editor</li>
+        }
+    </ul>
+</body>
+</html>
+ *@

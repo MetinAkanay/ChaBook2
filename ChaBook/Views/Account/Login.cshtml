@@ -19,16 +19,17 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #f8f9fa;
+            background-color: #fbf1e3;
         }
 
         .container {
-            background-color: #e1d3c1;
+            background-color: #faeddb;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             padding: 20px;
             width: 100%;
             max-width: 400px;
+            position: relative;
         }
 
         h2 {
@@ -122,11 +123,24 @@
                 .mt-3 a:hover {
                     text-decoration: underline;
                 }
+
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            position: absolute;
+            top: -200px;
+            left: 50%;
+            transform: translateX(-50%);
+            
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h2>Login to ChaBook</h2>
+        <div class="logo-container">
+            <a href="/Home/Index"><img src="/images/ChaBookLogo.png" class="img-responsive" style="height: 160px; width: 170px;"></a>
+        </div>
+        <h2 class="text-center">Login to ChaBook</h2>
         <form method="post" action="/Account/Login">
             @Html.AntiForgeryToken()
             <div class="form-group">

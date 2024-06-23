@@ -1,3 +1,7 @@
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+
 namespace ChaBook
 {
     public class Program
@@ -6,12 +10,15 @@ namespace ChaBook
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
             builder.Services.AddControllersWithViews();
 
-            var app = builder.Build();
+            builder.Services.ConfigureApplicationCookie(options =>
+            {
+                options.Cookie.SecurePolicy = Microsoft.AspNetCore.Http.CookieSecurePolicy.Always; 
+                options.Cookie.SameSite = Microsoft.AspNetCore.Http.SameSiteMode.Strict;
+            });
 
-            // Configure the HTTP request pipeline.
+            var app = builder.Build();
             if (!app.Environment.IsDevelopment())
             {
                 app.UseExceptionHandler("/Home/Error");
@@ -45,7 +52,6 @@ namespace ChaBook
             app.MapControllerRoute(
                 name: "Books",
                 pattern: "{controller=Books}/{action=Index}/{id?}");
-
 
             app.Run();
         }

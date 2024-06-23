@@ -7,12 +7,29 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Views\Books\SubCategory.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Views\Books\SubCategory.cshtml" />
     <None Include="wwwroot\images\ChaBookLogo.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="MongoDB.Bson" Version="2.26.0" />
-    <PackageReference Include="MongoDB.Driver.Core" Version="2.26.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.6">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Views\Books\SubCategory.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Views\Books\SubCategory.cshtml" />
   </ItemGroup>
 
 </Project>

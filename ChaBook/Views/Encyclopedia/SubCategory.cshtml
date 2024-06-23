@@ -1,0 +1,18 @@
+﻿@* @model IEnumerable<ChaBook.Models.Encyclopedia>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Encyclopedia - @ViewBag.SubCategory</title>
+</head>
+<body>
+    <h1>Encyclopedia - @ViewBag.SubCategory</h1>
+    <ul>
+        @foreach (var book in Model)
+        {
+            <li>@book.Title - @book.Author</li>
+        }
+    </ul>
+</body>
+</html>
+ *@

@@ -1,40 +1,65 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using ChaBook.Models;
-using System.Collections.Generic;
+using static System.Reflection.Metadata.BlobBuilder;
 
-namespace Chabo.Controllers
+namespace Chabook.Controllers
 {
     public class BooksController : Controller
     {
         public IActionResult Index()
         {
-            // Örnek veri
-            var books = new List<Book>
-            {
-                new Book
-                {
-                    Id = 1,
-                    Title = "Book Title 1",
-                    Description = "Description 1",
-                    Author = "Author 1",
-                    Price = 10.99m,
-                    Rating = 4,
-                    ImageUrl = "path_to_image1"
-                },
-                new Book
-                {
-                    Id = 2,
-                    Title = "Book Title 2",
-                    Description = "Description 2",
-                    Author = "Author 2",
-                    Price = 12.99m,
-                    Rating = 5,
-                    ImageUrl = "path_to_image2"
-                },
-                // Diğer kitaplar
-            };
 
-            return View(books);
+            return View();
         }
+        public IActionResult Novel()
+        {
+            // Burada Novel alt kategorisine ait verileri alabilir ve View'e gönderebilirsiniz.
+            return View();
+        }
+        //public IActionResult SubCategory(SubCategory subCategory)
+        //{
+        //    var filteredBooks = books.Where(b => b.SubCategory == subCategory).ToList();
+        //    ViewBag.SubCategory = subCategory.ToString();
+        //    return View(filteredBooks);
+        //}
     }
 }
+
+
+
+//using Microsoft.AspNetCore.Mvc;
+//using Microsoft.EntityFrameworkCore;
+//using ChaBook.Data;
+//using ChaBook.Models.Category;
+
+//public class BooksController : Controller
+//{
+//    private readonly ApplicationDbContext _context;
+
+//    public BooksController(ApplicationDbContext context)
+//    {
+//        _context = context;
+//    }
+
+//    public async Task<IActionResult> Index(int subCategoryId)
+//    {
+//        var books = await _context.Books
+//            .Where(b => b.SubCategoryId == subCategoryId)
+//            .ToListAsync();
+//        return View(books);
+//    }
+
+//    public async Task<IActionResult> Details(int id)
+//    {
+//        var book = await _context.Books
+//            .Include(b => b.SubCategory)
+//            .ThenInclude(sc => sc.Category)
+//            .FirstOrDefaultAsync(b => b.BookDetailId == id);
+
+//        if (book == null)
+//        {
+//            return NotFound();
+//        }
+
+//        return View(book);
+//    }
+//}
